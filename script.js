@@ -45,7 +45,7 @@ transactionForm.addEventListener("submit", function(e) {
 
   // adding new transaction object to transactions array
   transactions.push(transaction);
-  console.log(transactions);
+  // console.log(transactions);
 
   // calling update UI
   render();
@@ -54,6 +54,9 @@ transactionForm.addEventListener("submit", function(e) {
 
 // function to clear transaction list update UI
 function render() {
+  // reset form
+  transactionForm.reset()
+
   // clear transaction list
   transactionList.innerHTML = "";
 
