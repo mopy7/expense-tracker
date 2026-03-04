@@ -107,13 +107,17 @@ function render() {
   for (const transaction of transactions) {
     // create li
     const li = document.createElement("li");
+    // change transaction list color depending on the amount
+    if (transaction.amount > 0) li.classList.add("income");
+    else li.classList.add("expense");
     // attach transaction id to <li> using data-id
     li.dataset.id = transaction.id;
     // set its text (description + amount)
-    li.textContent = `${transaction.description} ${transaction.amount > 0 ? "+" : ""}${transaction.amount}`;
+    li.textContent = `${transaction.description} ${transaction.amount > 0 ? "+₹" : "-₹"}${Math.abs(transaction.amount).toLocaleString()}`;
     // create delete button
     const deleteButton = document.createElement("button");
-    deleteButton.textContent = "x";
+    deleteButton.textContent = "🗑";
+    deleteButton.classList.add("delete-btn");
     // append delete button to <li>
     li.append(deleteButton);
     // append li to transactionList
@@ -134,9 +138,9 @@ function render() {
     .reduce((total, transaction) => total + transaction.amount, 0);
 
   //  update balance, income, expense
-  balanceElement.textContent = balance;
-  incomeElement.textContent = income;
-  expenseElement.textContent = Math.abs(expense);
+  balanceElement.textContent = `₹${balance.toLocaleString()}`;
+  incomeElement.textContent = `₹${income.toLocaleString()}`;
+  expenseElement.textContent = `₹${Math.abs(expense).toLocaleString()}`;
 }
 
 /* APP START */

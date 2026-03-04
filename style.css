@@ -1,0 +1,115 @@
+/* page background */
+body {
+  background: #f4f6f8;
+  font-family: system-ui, -apple-system, sans-serif;
+  margin: 0;
+}
+
+
+/* container (centered layout) */
+.container {
+  max-width: 500px;
+  margin: auto;
+  padding: 20px;
+}
+
+
+/* title */
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+/* card ui */
+.card {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+/* income / expense row */
+.summary {
+  display: flex;
+  gap: 10px;
+}
+
+.summary .card {
+  flex: 1;
+}
+
+
+/* income / expense colors */
+.income-card {
+  border-left: 5px solid #2ecc71;
+}
+
+.expense-card {
+  border-left: 5px solid #e74c3c;
+}
+
+
+/* form styling */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+input {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+button[type="submit"] {
+  padding: 10px;
+  background: #2ecc71;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+/* transaction list */
+#transaction-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+
+/* transaction item */
+#transaction-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border-left: 5px solid;
+  background: #fafafa;
+  margin-bottom: 8px;
+  border-radius: 5px;
+}
+
+
+/* dynamic transaction list color */
+#transaction-list li.income {
+  border-left-color: #2ecc71;
+}
+
+#transaction-list li.expense {
+  border-left-color: #e74c3c;
+}
+
+
+/* delete button */
+.delete-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+}

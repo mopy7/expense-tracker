@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Expense Tracker</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-  <!-- title  -->
-  <h1>Expense Tracker</h1>
 
-  <!-- balance section -->
-  <div>
-    <h3>Your Balance</h3>
-    <p id="balance">₹0.00</p>
-  </div>
+  <div class="container">
 
-  <!-- income/expense section -->
-  <div>
-    <div>
-      <h4>Income</h4>
-      <p id="income">₹0.00</p>
+    <!-- title  -->
+    <h1 class="title">Expense Tracker</h1>
+
+    <!-- balance section -->
+    <div class="card balance-card">
+      <h3>Your Balance</h3>
+      <p id="balance">₹0.00</p>
     </div>
 
-    <div>
-      <h4>Expense</h4>
-      <p id="expense">₹0.00</p>
+    <!-- income/expense section -->
+    <div class="summary">
+
+      <div class="card income-card">
+        <h4>Income</h4>
+        <p id="income">₹0.00</p>
+      </div>
+
+      <div class="card expense-card">
+        <h4>Expense</h4>
+        <p id="expense">₹0.00</p>
+      </div>
+
     </div>
+
+    <!-- transaction form -->
+    <div class="card form-card">
+      <h3>Add Transaction</h3>
+
+      <form id="transaction-form">
+        <input type="text" id="description" placeholder="Salary">
+        <input type="number" id="amount" placeholder="Amount">
+        <button type="submit">Add</button>
+      </form>
+    </div>
+
+
+    <!-- unordered list for transaction list -->
+    <div class="card transaction-card">
+      <h3>Transaction</h3>
+      <ul id="transaction-list"></ul>
+    </div>
+
   </div>
-
-  <!-- form for update -->
-  <form id="transaction-form">
-    <input type="text" id="description" placeholder="Eg: Clothes">
-    <input type="number" id="amount" placeholder="Amount">
-    <button type="submit">Submit</button>
-  </form>
-
-  <!-- unordered list for transaction list -->
-  <ul id="transaction-list"></ul>
 
   <script src="script.js"></script>
+  
 </body>
 </html>
