@@ -62,7 +62,7 @@ transactionForm.addEventListener("submit", function (event) {
   // creating transaction object
   const transaction = {
     // populating id for each transaction
-    id: transactions.length + 1,
+    id: Date.now(),
 
     description: descriptionValue,
     amount: amountValue,
