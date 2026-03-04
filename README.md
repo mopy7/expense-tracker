@@ -6,6 +6,14 @@ This project focuses on strengthening core frontend concepts such as **state man
 
 ---
 
+## 🌐 Live Demo
+🔗 https://mopy7.github.io/expense-tracker
+
+## 📸 Preview
+![Expense Tracker](assets/preview.gif)
+
+---
+
 ## 🚀 Features
 
 - Add income and expense transactions
