@@ -61,14 +61,17 @@ To strengthen JavaScript fundamentals and build a strong foundation for learning
 
 ## Version
 
-Current Version: **v1.1.0**
+Current Version: **v1.1.1**
 
 ### Version History
 
+**v1.1.1**
+- Fix duplicate transaction ID issue
+- Use `Date.now()` to generate unique transaction IDs
+
 **v1.1.0**
 - Delete transaction functionality
-- LocalStorage persistence
-- Improved application state management
+- Persistent storage using localStorage
 
 **v1.0.0**
 - Add transaction functionality
