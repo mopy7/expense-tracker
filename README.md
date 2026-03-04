@@ -12,6 +12,7 @@ This project focuses on strengthening core frontend concepts such as **state man
 - Delete existing transactions
 - Input validation (no empty values or zero amounts)
 - Dynamic transaction list rendering
+- Persistent storage using **localStorage**
 - Automatic calculation of:
   - Total Balance
   - Total Income
@@ -31,6 +32,7 @@ This project focuses on strengthening core frontend concepts such as **state man
 - Conditional rendering
 - Separation of application state and UI
 - Basic CRUD operations
+- Browser storage (`localStorage`)
 
 ---
 
@@ -57,18 +59,21 @@ To strengthen JavaScript fundamentals and build a strong foundation for learning
 
 ---
 
-## 🏷 Version
+## Version
 
-Current Version: **v1.0.0**
+Current Version: **v1.1.0**
 
 ### Version History
 
+**v1.1.0**
+- Delete transaction functionality
+- LocalStorage persistence
+- Improved application state management
+
 **v1.0.0**
 - Add transaction functionality
-- Delete transaction functionality
-- Balance, income, and expense calculation
 - Dynamic UI rendering
-- Event delegation for delete actions
+- Balance, income, and expense calculation
 
 ---
 
