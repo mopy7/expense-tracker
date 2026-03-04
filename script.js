@@ -1,5 +1,5 @@
 // create an empty array to store transaction
-const transactions = [];
+let transactions = [];
 
 // selecting transaction form element
 const transactionForm = document.querySelector("#transaction-form");
@@ -16,8 +16,7 @@ const incomeElement = document.getElementById("income");
 // selecting expense element
 const expenseElement = document.getElementById("expense");
 
-
-transactionForm.addEventListener("submit", function(e) {
+transactionForm.addEventListener("submit", function (e) {
   // prevents default refresh
   e.preventDefault();
 
@@ -29,18 +28,23 @@ transactionForm.addEventListener("submit", function(e) {
   const amountValue = Number(amountRaw);
 
   // if any input is empty or amount is not a number or amount is 0, show error message and stop function
-  if (!descriptionValue.trim() || !amountRaw.trim() || isNaN(amountValue) || amountValue === 0) {
+  if (
+    !descriptionValue.trim() ||
+    !amountRaw.trim() ||
+    isNaN(amountValue) ||
+    amountValue === 0
+  ) {
     alert("Invalid input");
     return;
   }
 
-  // creating transaction object 
+  // creating transaction object
   const transaction = {
     // populating id for each transaction
     id: transactions.length + 1,
 
     description: descriptionValue,
-    amount: amountValue
+    amount: amountValue,
   };
 
   // adding new transaction object to transactions array
@@ -49,13 +53,12 @@ transactionForm.addEventListener("submit", function(e) {
 
   // calling update UI
   render();
-})
-
+});
 
 // function to clear transaction list update UI
 function render() {
   // reset form
-  transactionForm.reset()
+  transactionForm.reset();
 
   // clear transaction list
   transactionList.innerHTML = "";
@@ -65,12 +68,19 @@ function render() {
   for (const transaction of transactions) {
     // create li
     const li = document.createElement("li");
+    // attach transaction id to <li> using data-id
+    li.dataset.id = transaction.id;
     // set its text (description + amount)
-    li.textContent = `${ transaction.description } ${ transaction.amount > 0 ? "+" : ""}${transaction.amount}`
+    li.textContent = `${transaction.description} ${transaction.amount > 0 ? "+" : ""}${transaction.amount}`;
+    // create delete button
+    const deleteButton = document.createElement("button");
+    deleteButton.textContent = "x";
+    // append delete button to <li>
+    li.append(deleteButton);
     // append li to transactionList
     transactionList.append(li);
   }
-  
+
   //  calculate totals
   const balance = transactions.reduce((total, transaction) => {
     return total + transaction.amount;
@@ -89,3 +99,16 @@ function render() {
   incomeElement.textContent = income;
   expenseElement.textContent = Math.abs(expense);
 }
+
+// LISTEN for click events on transactionList (the <ul>)
+transactionList.addEventListener("click", function (event) {
+  // IF clicked element is a delete button
+  if (event.target.tagName === "BUTTON") {
+    // get parent <li>, read data-id and convert to number
+    const id = Number(event.target.parentElement.dataset.id);
+    // keep all transactions except the clicked one
+    transactions = transactions.filter((transaction) => transaction.id !== id);
+    // update state
+    render();
+  }
+});
