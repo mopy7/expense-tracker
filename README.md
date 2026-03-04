@@ -2,14 +2,15 @@
 
 A simple expense tracking application built using **HTML, CSS, and pure JavaScript**.
 
-This project focuses on understanding core frontend concepts like **state management, DOM manipulation, and functional programming** — without using any frameworks.
+This project focuses on strengthening core frontend concepts such as **state management, DOM manipulation, and functional programming** without relying on any frameworks.
 
 ---
 
-## 🚀 Features (v1.0.0)
+## 🚀 Features
 
 - Add income and expense transactions
-- Input validation (no empty values, no zero amounts)
+- Delete existing transactions
+- Input validation (no empty values or zero amounts)
 - Dynamic transaction list rendering
 - Automatic calculation of:
   - Total Balance
@@ -23,10 +24,13 @@ This project focuses on understanding core frontend concepts like **state manage
 
 - State management using arrays
 - DOM manipulation
-- Event handling
-- Array methods: `filter()` and `reduce()`
+- Event delegation
+- Array methods:
+  - `filter()`
+  - `reduce()`
 - Conditional rendering
-- Separation of data and UI logic
+- Separation of application state and UI
+- Basic CRUD operations
 
 ---
 
@@ -40,17 +44,16 @@ This project focuses on understanding core frontend concepts like **state manage
 
 ## 🎯 Project Goal
 
-To strengthen core JavaScript fundamentals and build a strong foundation for learning React and other frontend frameworks.
+To strengthen JavaScript fundamentals and build a strong foundation for learning modern frontend frameworks such as **React**.
 
 ---
 
 ## 🔮 Upcoming Improvements
 
-- Delete transaction functionality
-- LocalStorage persistence
-- UI enhancements (color coding, formatting)
-- Number formatting with `toLocaleString()`
-- Code refactoring for better structure
+- Persist transactions using **localStorage**
+- UI enhancements (color coding for income/expense)
+- Number formatting using `toLocaleString()`
+- Code refactoring for better maintainability
 
 ---
 
@@ -58,8 +61,17 @@ To strengthen core JavaScript fundamentals and build a strong foundation for lea
 
 Current Version: **v1.0.0**
 
+### Version History
+
+**v1.0.0**
+- Add transaction functionality
+- Delete transaction functionality
+- Balance, income, and expense calculation
+- Dynamic UI rendering
+- Event delegation for delete actions
+
 ---
 
 ## 👨‍💻 Author
 
-Built as part of continuous JavaScript practice and GitHub consistency.
+Built as part of continuous JavaScript practice and GitHub portfolio development.
