@@ -1,5 +1,9 @@
+/* STATE */
+
 // create an empty array to store transaction
 let transactions = [];
+
+/* DOM ELEMENTS */
 
 // selecting transaction form element
 const transactionForm = document.querySelector("#transaction-form");
@@ -16,9 +20,26 @@ const incomeElement = document.getElementById("income");
 // selecting expense element
 const expenseElement = document.getElementById("expense");
 
-transactionForm.addEventListener("submit", function (e) {
+/* STORAGE */
+
+function saveTransactions() {
+  localStorage.setItem("transactions", JSON.stringify(transactions));
+}
+
+function loadTransactions() {
+  const storedTransactions = localStorage.getItem("transactions");
+
+  if (storedTransactions) {
+    transactions = JSON.parse(storedTransactions);
+  }
+}
+
+/* EVENT LISTENERS */
+
+// submit handler
+transactionForm.addEventListener("submit", function (event) {
   // prevents default refresh
-  e.preventDefault();
+  event.preventDefault();
 
   // read description input value
   const descriptionValue = description.value;
@@ -51,15 +72,33 @@ transactionForm.addEventListener("submit", function (e) {
   transactions.push(transaction);
   // console.log(transactions);
 
+  // save transactions
+  saveTransactions();
+  // reset form
+  transactionForm.reset();
   // calling update UI
   render();
 });
 
+// LISTEN for click events on transactionList (the <ul>)
+transactionList.addEventListener("click", function (event) {
+  // IF clicked element is a delete button
+  if (event.target.tagName === "BUTTON") {
+    // get parent <li>, read data-id and convert to number
+    const id = Number(event.target.parentElement.dataset.id);
+    // keep all transactions except the clicked one
+    transactions = transactions.filter((transaction) => transaction.id !== id);
+    // save transactions
+    saveTransactions();
+    // update state
+    render();
+  }
+});
+
+/* RENDER */
+
 // function to clear transaction list update UI
 function render() {
-  // reset form
-  transactionForm.reset();
-
   // clear transaction list
   transactionList.innerHTML = "";
 
@@ -100,15 +139,9 @@ function render() {
   expenseElement.textContent = Math.abs(expense);
 }
 
-// LISTEN for click events on transactionList (the <ul>)
-transactionList.addEventListener("click", function (event) {
-  // IF clicked element is a delete button
-  if (event.target.tagName === "BUTTON") {
-    // get parent <li>, read data-id and convert to number
-    const id = Number(event.target.parentElement.dataset.id);
-    // keep all transactions except the clicked one
-    transactions = transactions.filter((transaction) => transaction.id !== id);
-    // update state
-    render();
-  }
-});
+/* APP START */
+
+// load stored transaction
+loadTransactions();
+// update state
+render();
