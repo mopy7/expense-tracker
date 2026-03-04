@@ -10,14 +10,17 @@ This project focuses on strengthening core frontend concepts such as **state man
 
 - Add income and expense transactions
 - Delete existing transactions
+- Persistent data storage using **localStorage**
 - Input validation (no empty values or zero amounts)
 - Dynamic transaction list rendering
-- Persistent storage using **localStorage**
 - Automatic calculation of:
   - Total Balance
   - Total Income
   - Total Expense
 - Real-time UI updates without page refresh
+- Responsive **card-based UI layout**
+- Color-coded transactions (income / expense)
+- Currency and number formatting
 
 ---
 
@@ -33,6 +36,7 @@ This project focuses on strengthening core frontend concepts such as **state man
 - Separation of application state and UI
 - Basic CRUD operations
 - Browser storage (`localStorage`)
+- Responsive layout with Flexbox
 
 ---
 
@@ -61,13 +65,20 @@ To strengthen JavaScript fundamentals and build a strong foundation for learning
 
 ## Version
 
-Current Version: **v1.1.1**
+Current Version: **v1.2.0**
 
 ### Version History
 
+**v1.2.0**
+- Responsive card-based UI layout
+- Color-coded transactions (income / expense)
+- Currency formatting with INR (₹)
+- Number formatting using `toLocaleString()`
+- Improved transaction list styling
+
 **v1.1.1**
 - Fix duplicate transaction ID issue
-- Use `Date.now()` to generate unique transaction IDs
+- Use `Date.now()` to generate unique IDs
 
 **v1.1.0**
 - Delete transaction functionality
